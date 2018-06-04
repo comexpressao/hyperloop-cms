@@ -233,7 +233,7 @@ Add three new ruby files to the `app/hyperloop/components` folder:
 # app/hyperloop/components/header.rb
 class Header < Hyperloop::Component
   render(HEADER) do
-    "Header will go here"
+    'Header will go here'
   end
 end
 ```
@@ -242,7 +242,7 @@ end
 # app/hyperloop/components/index.rb
 class Index < Hyperloop::Component
   render(SECTION) do
-    "list of Todos will go here"
+    'List of Todos will go here'
   end
 end
 ```
@@ -251,7 +251,7 @@ end
 # app/hyperloop/components/footer.rb
 class Footer < Hyperloop::Component
   render(DIV) do
-    "Footer will go here"
+    'Footer will go here'
   end
 end
 ```
@@ -260,7 +260,7 @@ Once you add the Footer component you should see:
 
   <div style="border:solid; margin-left: 10px; padding: 10px">
     <div>Header will go here</div>
-    <div>list of Todos will go here</div>  
+    <div>List of Todos will go here</div>  
     <div>Footer will go here</div>  
   </div>
   <br>
@@ -359,7 +359,7 @@ class TodoItem < Hyperloop::Component
   param :todo
   render(LI) do
     INPUT(type: :checkbox, checked: params.todo.completed)
-      .on(:change) { params.todo.update(completed: !params.todo.completed) }
+      .on(:click) { params.todo.update(completed: !params.todo.completed) }
     params.todo.title
   end
 end
@@ -376,7 +376,7 @@ class TodoItem < Hyperloop::Component
   param :todo
   render(LI) do
     INPUT(type: :checkbox, checked: params.todo.completed)
-    .on(:click) { params.todo.update(completed: !params.todo.completed) }
+      .on(:click) { params.todo.update(completed: !params.todo.completed) }
     SPAN { params.todo.title } # See note below...
     A { ' -X-' }.on(:click) { params.todo.destroy }
   end
@@ -550,10 +550,10 @@ class EditItem < Hyperloop::Component
   param :todo
   render do
     INPUT(defaultValue: params.todo.title)
-    .on(:key_down) do |evt|
-      next unless evt.key_code == 13
-      params.todo.update(title: evt.target.value)
-    end
+      .on(:key_down) do |evt|
+        next unless evt.key_code == 13
+        params.todo.update(title: evt.target.value)
+      end
   end
 end
 ```
@@ -597,12 +597,12 @@ class EditItem < Hyperloop::Component
 
   render do
     INPUT(defaultValue: params.todo.title)
-    .on(:key_down) do |evt|
-      next unless evt.key_code == 13
-      params.todo.update(title: evt.target.value)
-      params.on_save                       # add
-    end
-    .on(:blur) { params.on_cancel }        # add
+      .on(:key_down) do |evt|
+        next unless evt.key_code == 13
+        params.todo.update(title: evt.target.value)
+        params.on_save                       # add
+      end
+      .on(:blur) { params.on_cancel }        # add
   end
 end
 ```
@@ -629,14 +629,14 @@ class TodoItem < Hyperloop::Component
   render(LI) do
     if state.editing
       EditItem(todo: params.todo)
-      .on(:save, :cancel) { mutate.editing false }
+        .on(:save, :cancel) { mutate.editing false }
     else
       INPUT(type: :checkbox, checked: params.todo.completed)
-      .on(:click) { params.todo.update(completed: !params.todo.completed) }
+        .on(:click) { params.todo.update(completed: !params.todo.completed) }
       LABEL { params.todo.title }
-      .on(:double_click) { mutate.editing true }
+        .on(:double_click) { mutate.editing true }
       A { ' -X-' }
-      .on(:click) { params.todo.destroy }
+        .on(:click) { params.todo.destroy }
     end
   end
 end
@@ -671,7 +671,7 @@ class Header < Hyperloop::Component
   state(:new_todo) { Todo.new }
   render(HEADER) do
     EditItem(todo: state.new_todo)
-    .on(:save) { mutate.new_todo Todo.new }
+      .on(:save) { mutate.new_todo Todo.new }
   end
 end
 ```
@@ -800,14 +800,14 @@ class TodoItem < Hyperloop::Component
   render(LI, class: 'todo-item') do
     if state.editing
       EditItem(class: :edit, todo: params.todo)
-      .on(:save, :cancel) { mutate.editing false }
+        .on(:save, :cancel) { mutate.editing false }
     else
       INPUT(type: :checkbox, class: :toggle, checked: params.todo.completed)
-      .on(:click) { params.todo.update(completed: !params.todo.completed) }
+        .on(:click) { params.todo.update(completed: !params.todo.completed) }
       LABEL { params.todo.title }
-      .on(:double_click) { mutate.editing true }
+        .on(:double_click) { mutate.editing true }
       A(class: :destroy) # also remove the { '-X-' } placeholder
-      .on(:click) { params.todo.destroy }
+        .on(:click) { params.todo.destroy }
     end
   end
 end
@@ -822,7 +822,7 @@ class Header < Hyperloop::Component
   render(HEADER, class: :header) do                   # add the 'header' class
     H1 { 'todos' }                                    # Add the hero unit.
     EditItem(class: 'new-todo', todo: state.new_todo) # add 'new-todo' class
-    .on(:save) { mutate.new_todo Todo.new }
+      .on(:save) { mutate.new_todo Todo.new }
   end
 end
 ```
@@ -851,7 +851,7 @@ EditItem should display a meaningful placeholder hint if the title is blank:
       class: params.className,
       defaultValue: params.todo.title,
       key: params.todo.object_id,
-      placeholder: "What is left to do today?"
+      placeholder: 'What is left to do today?'
     ).on(:key_down) do |evt| ...
     ...
   ```
@@ -972,7 +972,7 @@ class EditItem < Hyperloop::Component
       class: params.className,
       defaultValue: params.todo.title,
       key: params.todo.object_id,
-      placeholder: "What is left to do today?"
+      placeholder: 'What is left to do today?'
     ).on(:key_down) do |evt|
       next unless evt.key_code == 13
       params.todo.update(title: evt.target.value)
@@ -1006,7 +1006,9 @@ end
 
 <hr>
 
-You can find the final application source code here:<br>
+You can find the final application source code here:
+
+<br>
 
 <a href="https://github.com/ruby-hyperloop/hyperloop-rails-webpackergem-helloworld" alt="Tutorial source code" title="Tutorial source code">
 <img src="http://ruby-hyperloop.org/images/githubsourcecodebadge.png">
