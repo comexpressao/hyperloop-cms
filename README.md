@@ -10,9 +10,25 @@
 
 <h2 align="center">The Complete Isomorphic Ruby Framework</h2>
 
+<br>
+
+<a href="http://ruby-hyperloop.org/" alt="Hyperloop" title="Hyperloop">
+<img src="http://ruby-hyperloop.org/images/githubhyperloopbadge.png">
+</a>
+
+<a href="http://ruby-hyperloop.org/tutorials/hyperlooprails/todo-tutorial/" alt="Tutorial page" title="Tutorial page">
+<img src="http://ruby-hyperloop.org/images/githubtutorialbadge.png">
+</a>
+
+<a href="https://gitter.im/ruby-hyperloop/chat" alt="Gitter chat" title="Gitter chat">
+<img src="http://ruby-hyperloop.org/images/githubgitterbadge.png">
+</a>
+
 </div>
 
 ## Hyperloop TodoMVC Tutorial (Rails 5.2.0)
+
+![](http://ruby-hyperloop.org/images/tutorials/Hyperloop-Railstodomvc.gif)
 
 ### Prerequisites
 
