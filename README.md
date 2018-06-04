@@ -1,17 +1,16 @@
 <div class="githubhyperloopheader">
 
 <p align="center">
-
 <a href="http://ruby-hyperloop.org/" alt="Hyperloop" title="Hyperloop">
 <img width="350px" src="http://ruby-hyperloop.org/images/hyperloop-github-logo.png">
 </a>
-
 </p>
 
 <h2 align="center">The Complete Isomorphic Ruby Framework</h2>
 
 <br>
 
+<p align="center">
 <a href="http://ruby-hyperloop.org/" alt="Hyperloop" title="Hyperloop">
 <img src="http://ruby-hyperloop.org/images/githubhyperloopbadge.png">
 </a>
@@ -23,12 +22,15 @@
 <a href="https://gitter.im/ruby-hyperloop/chat" alt="Gitter chat" title="Gitter chat">
 <img src="http://ruby-hyperloop.org/images/githubgitterbadge.png">
 </a>
+</p>
 
 </div>
 
-## Hyperloop TodoMVC Tutorial (Rails 5.2.0)
+<h2 align="center">Hyperloop TodoMVC Tutorial (Rails 5.2.0)</h2>
 
+<p align="center">
 ![](http://ruby-hyperloop.org/images/tutorials/Hyperloop-Railstodomvc.gif)
+</p>
 
 ### Prerequisites
 
@@ -76,15 +78,9 @@ Add Hyperloop to your Gemfile
 Until our official release, add the following to your Gemfile:
 ```ruby
   ...
+  # lap0 will use the latest release candidate
   gem 'hyperloop', '~> 1.0.0.lap0', git: 'https://github.com/ruby-hyperloop/hyperloop.git', branch: 'edge'
   gem 'hyperloop-config', '~> 1.0.0.lap0', git: 'https://github.com/ruby-hyperloop/hyperloop-config.git', branch: 'edge'
-  ...
-```
-
-After official release you will be able to simply add the following to your Gemfile
-```ruby
-  ...
-  gem 'hyperloop', '~> 1.0.0.lap0' # lap0 will use the latest release candidate
   ...
 ```
 
@@ -107,7 +103,7 @@ The generator creates the hyperloop structure inside the /app directory :
   /app/hyperloop/stores
 ```
 
-And updates your app/assets/javascripts/application.js file adding this line:
+And updates your app/assets/javascripts/application.js file adding these lines:
 ```ruby
   //= require hyperloop-loader
   Opal.OpalHotReloader.$listen() // optional (port, false, poll_seconds) i.e. (8081, false, 1)
@@ -153,23 +149,23 @@ Okay lets see it in action:
     bundle exec rails g model Todo title:string completed:boolean priority:integer
   ```
 
-   This runs a Rails *generator* which will create the skeleton Todo model class, and create a *migration* which will
-   add the necessary tables and columns to the database.  
+  This runs a Rails *generator* which will create the skeleton Todo model class, and create a *migration* which will
+  add the necessary tables and columns to the database.  
 
-   **VERY IMPORTANT!** Now look in the db/migrate/ directory, and edit the migration file you have just created. The file will be titled with a long string of numbers then "create_todos" at the end. Change the line creating the completed boolean field so that it looks like this:    
-    ```ruby  
-      ...
-        t.boolean :completed, null: false, default: false
-      ...
-    ```  
-    For details on 'why' see [this blog post.](https://robots.thoughtbot.com/avoid-the-threestate-boolean-problem)
-    Basically this insures `completed` is treated as a true boolean, and will avoid having to check between `false` and `null` later on.   
+  **VERY IMPORTANT!** Now look in the db/migrate/ directory, and edit the migration file you have just created. The file will be titled with a long string of numbers then "create_todos" at the end. Change the line creating the completed boolean field so that it looks like this:
+  ```ruby  
+    ...
+    t.boolean :completed, null: false, default: false
+    ...
+  ```  
+  For details on 'why' see [this blog post.](https://robots.thoughtbot.com/avoid-the-threestate-boolean-problem)
+  Basically this insures `completed` is treated as a true boolean, and will avoid having to check between `false` and `null` later on.   
 
-    Now run
-    ```ruby
-      bundle exec rails db:migrate
-    ```
-    which will create the table.
+  Now run
+  ```ruby
+    bundle exec rails db:migrate
+  ```
+  which will create the table.
 
 2. **Make Some Models Public:**  
   *Move* `models/todo.rb` and `models/application_record.rb` to `hyperloop/models`.  
