@@ -26,8 +26,15 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-gem 'hyperloop', '~> 1.0.0.lap0', git: 'https://github.com/ruby-hyperloop/hyperloop.git', branch: 'edge'
-gem 'hyperloop-config', '~> 1.0.0.lap0', git: 'https://github.com/ruby-hyperloop/hyperloop-config.git', branch: 'edge'
+
+gem 'bootstrap_form', git: 'https://github.com/bootstrap-ruby/bootstrap_form.git',
+                      branch: 'master'
+gem 'comfortable_mexican_sofa', '~> 2.0.0'
+
+gem 'hyperloop', '~> 1.0.0.lap0', git: 'https://github.com/ruby-hyperloop/hyperloop.git',
+                                  branch: 'edge'
+gem 'hyperloop-config', '~> 1.0.0.lap0', git: 'https://github.com/ruby-hyperloop/hyperloop-config.git',
+                                         branch: 'edge'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
